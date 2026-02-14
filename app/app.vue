@@ -12,6 +12,14 @@ useSeoMeta({
   description: 'Gothic 2 Pre-Release Material',
 })
 
+const isChangelogOpen = ref(false)
+
+const toggleChangelog = () => {
+  isChangelogOpen.value = !isChangelogOpen.value
+}
+
+provide('isChangelogOpen', isChangelogOpen)
+
 const navigationLinks = [
   {
     label: 'GitHub',
@@ -34,14 +42,16 @@ const navigationLinks = [
 
 <template>
   <UApp>
-    <div class="min-h-screen xl:grid xl:grid-cols-2">
+    <div 
+      class="min-h-screen xl:h-screen xl:grid xl:grid-cols-2 relative transition-all duration-700 ease-in-out xl:overflow-hidden"
+      :class="{ 'xl:!flex xl:items-center xl:justify-center': !isChangelogOpen }"
+    >
       <UPageSection
         title=""
         description=""
         orientation="vertical"
-        :links="navigationLinks"
         :ui="{
-          root: 'border-b border-gray-800 xl:border-b-0 xl:sticky xl:inset-y-0 xl:h-screen overflow-hidden',
+          root: 'border-b border-gray-800 xl:border-b-0 xl:sticky xl:inset-y-0 xl:h-screen overflow-hidden transition-all duration-700 ease-in-out',
           container: 'h-full items-center justify-center',
           wrapper: 'flex flex-col',
           headline: 'mb-6',
@@ -55,12 +65,38 @@ const navigationLinks = [
           <AppLogo class="w-auto h-auto text-amber-100" />
         </template>
 
-        <template #default />
+        <template #links>
+          <UButton
+            v-for="link in navigationLinks"
+            :key="link.label"
+            v-bind="link"
+          />
+          <UButton
+            icon="i-lucide-scroll-text"
+            label="Changelog"
+            variant="ghost"
+            size="md"
+            @click="toggleChangelog"
+          />
+        </template>
       </UPageSection>
 
-      <section class="px-4 sm:px-6 xl:px-0 xl:-ms-30 xl:flex-1">
-        <NuxtPage />
-      </section>
+      <Transition
+        enter-active-class="xl:transition-all xl:duration-500 xl:ease-out"
+        enter-from-class="xl:translate-x-full xl:opacity-0"
+        enter-to-class="xl:translate-x-0 xl:opacity-100"
+        leave-active-class="xl:transition-all xl:duration-400 xl:ease-in"
+        leave-from-class="xl:translate-x-0 xl:opacity-100"
+        leave-to-class="xl:translate-x-full xl:opacity-0"
+      >
+        <section 
+          v-if="isChangelogOpen"
+          class="px-4 sm:px-6 py-8 xl:px-0 xl:py-0 xl:-ms-30 xl:flex-1 xl:sticky xl:inset-y-0 xl:h-screen xl:overflow-y-auto"
+        >
+          <NuxtPage />
+        </section>
+      </Transition>
+
     </div>
   </UApp>
 </template>
