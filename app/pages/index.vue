@@ -98,7 +98,7 @@ const parseChangelogTxt = (text: string): Release[] => {
 
 // Try to fetch from file, with embedded data as fallback
 const getFallbackData = (): string => {
-  return `18.12.2024\n-----------\n\tTextures:\t\t\t- Stworzono kilka nowych tekstur dla terenu i edytowano kilka istniejących\n\t\t\t\t\t\t- NW_Nature_Path_01_End.tga ✔\n\t\t\t\t\t\t- NW_Nature_Path_01_TCross.tga ✔\n\n\tMeshes:\t\t\t\t- Częściowo dostosowano siatkę miasta\n\t\t\t\t\t\t- NewWorld_Part_City_P01.3ds ✔\n\n\tScripts:\t\t\t- Przywrócono postać Leomara\n\t\t\t\t\t\t- PAL_229_Leomar.d ✔\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n13.12.2024\n-----------\n\tMusic:\t\t\t\t- Przywrócono trzy utwory\n\t\t\t\t\t\t- _Taverne.sty ✔\n\t\t\t\t\t\t- TAV_DayStd.sgt ✔\n\n\tInterface:\t\t\t- Poprawiono błędy interfejsu\n\t\t\t\t\t\t- Menu responsive fix\n`
+  return ''
 }
 
 let rawText = getFallbackData()

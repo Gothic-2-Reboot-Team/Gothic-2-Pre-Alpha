@@ -1,4 +1,4 @@
-# Gothic II Pre Alpha
+# Gothic 2 Pre Alpha
 
 [![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
 
@@ -33,7 +33,7 @@ yarn install
 
 ## Development Server
 
-Start the development server on `http://localhost:3001`:
+Start the development server on `http://localhost:3000`:
 
 ```bash
 yarn dev
