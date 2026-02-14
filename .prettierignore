@@ -1,0 +1,5 @@
+.**/
+node_modules/
+.gitlab-ci.yml
+.prettierrc
+.stylelintrc.json
