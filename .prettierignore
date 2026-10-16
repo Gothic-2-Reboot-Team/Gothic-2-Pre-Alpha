@@ -3,3 +3,5 @@ node_modules/
 .gitlab-ci.yml
 .prettierrc
 .stylelintrc.json
+pnpm-lock.yaml
+pnpm-workspace.yaml

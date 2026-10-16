@@ -1,13 +1,7 @@
 <template>
   <div class="logo-container">
-    <img
-      src="/g2-logo.webp"
-      alt="Gothic II"
-      class="logo-banner"
-    />
-    <div class="logo-subtitle">
-      [ Pre Alpha ]
-    </div>
+    <img src="/g2-logo.webp" alt="Gothic II" class="logo-banner" />
+    <div class="logo-subtitle">[ Pre Alpha ]</div>
   </div>
 </template>
 

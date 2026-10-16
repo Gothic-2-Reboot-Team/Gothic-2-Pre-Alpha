@@ -15,22 +15,13 @@ logs
 
 # Misc
 .DS_Store
+.fleet
+.idea
 
 # Local env files
 .env
 .env.*
 !.env.example
 
-# Tools
-.yarn/**
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-# VS Code
-.vscode
-
-.data
+# pnpm store
+.pnpm-store

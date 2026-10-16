@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/mdc'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@comark/nuxt'],
 
   devtools: {
     enabled: true,
@@ -8,20 +8,8 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  mdc: {
-    highlight: {
-      langs: ['diff', 'ts', 'vue', 'css'],
-    },
-    remarkPlugins: {
-      'remark-github': {
-        options: {
-          repository: 'nuxt-ui-templates/changelog',
-        },
-      },
-    },
-  },
-
   ui: {
+    prose: true,
     theme: {
       defaultVariants: {
         color: 'neutral',
@@ -33,5 +21,5 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
 
-  compatibilityDate: '2025-01-15',
-})
+  compatibilityDate: '2026-06-30',
+});

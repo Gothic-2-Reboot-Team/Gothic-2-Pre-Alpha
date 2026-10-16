@@ -5,20 +5,18 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
-})
+});
 
 useSeoMeta({
   title: 'Gothic 2 - Pre Alpha',
   description: 'Gothic 2 Pre-Release Material',
-})
+});
 
-const isChangelogOpen = ref(false)
+const isChangelogOpen = ref(false);
 
 const toggleChangelog = () => {
-  isChangelogOpen.value = !isChangelogOpen.value
-}
-
-provide('isChangelogOpen', isChangelogOpen)
+  isChangelogOpen.value = !isChangelogOpen.value;
+};
 
 const navigationLinks = [
   {
@@ -34,17 +32,20 @@ const navigationLinks = [
     icon: 'i-lucide-download',
     variant: 'ghost',
     size: 'md',
-    to: '',
-    target: '_blank',
+    disabled: true,
+    title: 'Download is not available yet',
+    'aria-label': 'Download is not available yet',
   },
-]
+];
 </script>
 
 <template>
   <UApp>
-    <div 
+    <div
       class="min-h-screen xl:h-screen xl:grid xl:grid-cols-2 relative transition-all duration-700 ease-in-out xl:overflow-hidden"
-      :class="{ 'xl:!flex xl:items-center xl:justify-center': !isChangelogOpen }"
+      :class="{
+        'xl:!flex xl:items-center xl:justify-center': !isChangelogOpen,
+      }"
     >
       <UPageSection
         title=""
@@ -58,7 +59,7 @@ const navigationLinks = [
           title:
             'text-center text-3xl font-mono text-amber-100 font-normal tracking-wider',
           description: 'text-center max-w-lg text-sm text-gray-600 font-mono',
-          links: 'gap-1 justify-center -ms-2.5'
+          links: 'gap-1 justify-center -ms-2.5',
         }"
       >
         <template #headline>
@@ -76,6 +77,8 @@ const navigationLinks = [
             label="Changelog"
             variant="ghost"
             size="md"
+            :aria-expanded="isChangelogOpen"
+            aria-controls="changelog-panel"
             @click="toggleChangelog"
           />
         </template>
@@ -89,14 +92,15 @@ const navigationLinks = [
         leave-from-class="xl:translate-x-0 xl:opacity-100"
         leave-to-class="xl:translate-x-full xl:opacity-0"
       >
-        <section 
-          v-if="isChangelogOpen"
+        <section
+          v-show="isChangelogOpen"
+          id="changelog-panel"
+          aria-label="Changelog"
           class="px-4 sm:px-6 py-8 xl:px-0 xl:py-0 xl:-ms-30 xl:flex-1 xl:sticky xl:inset-y-0 xl:h-screen xl:overflow-y-auto"
         >
           <NuxtPage />
         </section>
       </Transition>
-
     </div>
   </UApp>
 </template>
