@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import {
+  changelogMarkdownOptions,
+  changelogMarkdownPlugins,
+} from '../utils/changelogMarkdown';
+
 const { data: versions, status, error, refresh } = await useChangelog();
 const currentDate = useState('changelog-current-date', () =>
   new Date().toISOString(),
@@ -81,7 +86,12 @@ onUnmounted(() => {
 
       <template #body>
         <div class="changelog-markdown text-sm max-w-none">
-          <Markdown v-if="version.markdown" :value="version.markdown" />
+          <Markdown
+            v-if="version.markdown"
+            :value="version.markdown"
+            :options="changelogMarkdownOptions"
+            :plugins="changelogMarkdownPlugins"
+          />
         </div>
       </template>
     </UChangelogVersion>

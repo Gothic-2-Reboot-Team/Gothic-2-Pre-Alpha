@@ -33,6 +33,10 @@ are defined in `app/types.ts`. The `<Markdown>` component from `@comark/nuxt` re
 content using Nuxt UI prose components, enabled with `ui.prose` in
 `nuxt.config.ts`.
 
+Changelog entries support standard Markdown. Raw HTML, custom component syntax,
+and attribute syntax are disabled. `app/utils/changelogMarkdown.ts` also restricts
+the rendered tags and URL protocols using Comark's security plugin.
+
 Customize prose components through the `ui.prose` key in `app/app.config.ts`:
 
 ```ts [app/app.config.ts]

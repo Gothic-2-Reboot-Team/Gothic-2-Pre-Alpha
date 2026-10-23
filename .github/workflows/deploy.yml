@@ -9,20 +9,25 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
-      - run: corepack enable
+      - name: Install pinned pnpm from packageManager
+        run: |
+          corepack enable
+          corepack install
       - uses: actions/setup-node@v7
         with:
           node-version: "24"
           cache: "pnpm"
-
-      - name: Install pnpm
-        run: corepack prepare pnpm@latest --activate
 
       - run: pnpm install --frozen-lockfile
       - name: Cache Nuxt build
