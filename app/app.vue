@@ -1,12 +1,4 @@
 <script setup>
-useHead({
-  meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-  link: [{ rel: 'icon', href: '/favicon.ico' }],
-  htmlAttrs: {
-    lang: 'en',
-  },
-});
-
 useSeoMeta({
   title: 'Gothic 2 - Pre Alpha',
   description: 'Gothic 2 Pre-Release Material',

@@ -35,7 +35,7 @@ onUnmounted(() => {
     <p role="alert" class="mb-4">
       Could not load the changelog. Please try again.
     </p>
-    <UButton label="Try again" variant="outline" @click="refresh()" />
+    <UButton label="Try again" variant="ghost" @click="refresh()" />
   </main>
   <UChangelogVersions
     v-else

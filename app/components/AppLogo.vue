@@ -1,6 +1,10 @@
+<script setup lang="ts">
+const baseURL = useRuntimeConfig().app.baseURL;
+</script>
+
 <template>
   <div class="logo-container">
-    <img src="/g2-logo.webp" alt="Gothic II" class="logo-banner" />
+    <img :src="`${baseURL}g2-logo.webp`" alt="Gothic II" class="logo-banner" />
     <div class="logo-subtitle">[ Pre Alpha ]</div>
   </div>
 </template>
