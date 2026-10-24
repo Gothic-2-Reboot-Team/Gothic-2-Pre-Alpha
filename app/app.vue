@@ -34,9 +34,10 @@ const navigationLinks = [
 <template>
   <UApp>
     <div
-      class="min-h-screen xl:h-screen xl:grid xl:grid-cols-2 relative transition-all duration-700 ease-in-out xl:overflow-hidden"
+      class="min-h-screen xl:h-screen xl:grid relative transition-all duration-700 ease-in-out xl:overflow-hidden"
       :class="{
-        'xl:!flex xl:items-center xl:justify-center': !isChangelogOpen,
+        'xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]': isChangelogOpen,
+        'xl:grid-cols-[minmax(0,1fr)_minmax(0,0fr)]': !isChangelogOpen,
       }"
     >
       <UPageSection
