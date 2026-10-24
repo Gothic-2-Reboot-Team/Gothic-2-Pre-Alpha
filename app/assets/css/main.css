@@ -1,0 +1,78 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+@theme static {
+  --font-sans: 'Courier New', Menlo, Monaco, Consolas, monospace;
+  --font-mono: 'Courier New', Menlo, Monaco, Consolas, monospace;
+
+  /* Gothic Archive Color Palette */
+  --color-gray-50: #1a1a1a;
+  --color-gray-100: #0f0f0f;
+  --color-gray-200: #000000;
+  --color-gray-300: #1a1a1a;
+  --color-gray-400: #252525;
+  --color-gray-500: #2a2a2a;
+  --color-gray-600: #424242;
+  --color-gray-700: #555555;
+  --color-gray-800: #706961;
+  --color-gray-900: #0a0800;
+  --color-gray-950: #000000;
+
+  /* Primary - Tan/Brown accent */
+  --color-primary-50: #3c1e26;
+  --color-primary-100: #504437;
+  --color-primary-200: #645844;
+  --color-primary-300: #786c51;
+  --color-primary-400: #8c805e;
+  --color-primary-500: #ac876d;
+  --color-primary-600: #c1a080;
+  --color-primary-700: #d4b896;
+  --color-primary-800: #e4d7cc;
+  --color-primary-900: #f5e8dd;
+  --color-primary-950: #faf7f2;
+}
+
+.dark {
+  --ui-bg: #000;
+  --ui-bg-muted: #0a0800;
+  --ui-bg-elevated: #1a1a1a;
+  --ui-bg-accented: #252525;
+  --ui-text: #ccb9a5;
+  --ui-text-muted: #706961;
+  --ui-primary: #ac876d;
+  --ui-primary-hover: #e4d7cc;
+}
+
+/* Force dark mode */
+:root {
+  color-scheme: dark;
+
+  /* Gothic Archive Color System */
+  --color-primary: #000;
+  --color-text: #ccb9a5;
+  --color-text-muted: #706961;
+  --color-secondary: #baa898;
+  --color-link: #ac876d;
+  --color-border: #252525;
+  --color-bg-elevated: #1a1a1a;
+  --color-bg-dark: #0a0800;
+}
+
+html,
+body {
+  background: #000 !important;
+  color: #ccb9a5 !important;
+}
+
+/* Override Nuxt UI defaults */
+.bg-white {
+  @apply bg-black;
+}
+
+.text-gray-950 {
+  @apply text-amber-100;
+}
+
+.border-gray-200 {
+  @apply border-gray-700;
+}

@@ -1,0 +1,44 @@
+{
+  "name": "gothic-2-pre-alpha",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs",
+    "dev": "nuxt dev",
+    "prod": "pnpm build && pnpm start",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "static:preview": "npx serve .output/public",
+    "static:build": "pnpm generate && pnpm static:preview",
+    "postinstall": "nuxt prepare",
+    "lint": "pnpm lint:eslint && pnpm lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier . --check",
+    "lint:fix": "eslint . --fix && prettier --write --list-different .",
+    "typecheck": "nuxt typecheck",
+    "clean": "rm -rf node_modules .output .nuxt .pnpm-store",
+    "clean:install": "pnpm run clean && pnpm install"
+  },
+  "dependencies": {
+    "@comark/nuxt": "0.7.0",
+    "@iconify-json/lucide": "1.2.142",
+    "@iconify-json/simple-icons": "1.2.99",
+    "@iconify-json/vscode-icons": "1.2.87",
+    "@nuxt/ui": "4.11.3",
+    "nuxt": "4.6.2",
+    "scule": "1.3.0",
+    "shiki": "4.5.0",
+    "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.17.0",
+    "eslint": "10.12.0",
+    "eslint-plugin-better-tailwindcss": "4.9.0",
+    "prettier": "3.8.3",
+    "serve": "14.2.6",
+    "typescript": "6.0.3",
+    "vue-tsc": "3.3.13"
+  },
+  "packageManager": "pnpm@12.11.2"
+}

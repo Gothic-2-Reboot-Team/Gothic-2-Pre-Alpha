@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install pinned pnpm from packageManager
+        run: |
+          corepack enable
+          corepack install
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+      - name: Cache Nuxt build
+        uses: actions/cache@v6
+        with:
+          path: .nuxt
+          key: ${{ runner.os }}-nuxt-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-nuxt-
+
+      - name: Lint
+        run: pnpm run lint
+      - name: Typecheck
+        run: pnpm run typecheck
+
+      - run: pnpm generate
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./.output/public
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
