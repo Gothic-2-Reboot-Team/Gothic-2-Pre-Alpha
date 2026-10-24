@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     head: {
       title: 'Gothic 2 - Pre Alpha',
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-      viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: { lang: 'en' },
     },
   },
@@ -27,12 +26,17 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: 'https://gothic-2-reboot-team.github.io/Gothic-2-Pre-Alpha',
+    url: 'https://gothic-2-reboot-team.github.io',
     name: 'Gothic 2 - Pre Alpha',
+  },
+
+  seo: {
+    canonicalLowercase: false,
   },
 
   sitemap: {
     autoLastmod: true,
+    zeroRuntime: true,
   },
 
   icon: {

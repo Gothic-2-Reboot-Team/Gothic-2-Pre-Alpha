@@ -66,6 +66,12 @@ repository's GitHub Pages address. To generate the same paths locally:
 NUXT_APP_BASE_URL=/Gothic-2-Pre-Alpha/ pnpm generate
 ```
 
+`site.url` in `nuxt.config.ts` contains only the origin
+(`https://gothic-2-reboot-team.github.io`). The repository path belongs in
+`NUXT_APP_BASE_URL`; the SEO modules use it when constructing page URLs.
+`seo.canonicalLowercase` is disabled to preserve the repository path's casing
+in canonical and Open Graph URLs.
+
 For a custom domain serving the site at its root, change `NUXT_APP_BASE_URL`
 to `/` in the workflow and update `site.url` in `nuxt.config.ts`.
 
